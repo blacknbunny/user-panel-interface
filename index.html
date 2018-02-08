@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Anasayfa</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <!-- Modal başlangıç -->
+    <div class="modal" tabindex="-1" role="dialog" style="display:none;" id="myModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Silme işlemi</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          </div>
+          <div class="modal-body">
+            <p>Eminmisiniz ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary delete-data">Evet, Sil.</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır, Kapat.</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal bitiş -->
+
+    <table class="table table-inverse">
+      <thead>
+        <tr>
+          <th>Kullanıcı Adı</th>
+          <th>Şifre</th>
+          <th>Email</th>
+          <th>İşlemler</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" class="form-control kullanici">
+          </td>
+          <td>
+            <input type="text" class="form-control sifre">
+          </td>
+          <td>
+            <input type="text" class="form-control email">
+          </td>
+          <td>
+            <button class="btn btn-primary ekle">Ekle</button>
+          </td>
+        </tr>
+      </thead>
+      <tbody class="kullanici-list">
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/template" class="kullanici-list-template">
+    <td>
+      <div class="td-kullanici">
+        <%= kullanici %>
+      </div>
+      <input type="text" class="form-control td-kullanici-input" value="<%= kullanici %>" style="display:none;" />
+    </td>
+    <td>
+      <div class="td-sifre">
+        ******
+      </div>
+      <input type="text" class="form-control td-sifre-input" value="<%= sifre %>" style="display:none;" />
+    </td>
+    <td>
+      <div class="td-email">
+        <%= email %>
+      </div>
+      <input type="text" class="form-control td-email-input" value="<%= email %>" style="display:none;" />
+    </td>
+    <td>
+      <button class="btn btn-warning duzenle">Düzenle</button>
+      <button class="btn btn-danger sil">Sil</button>
+      <button class="btn btn-success guncelle" style="display:none;">Güncelle</button>
+      <button class="btn btn-danger kapat" style="display:none;">Kapat</button>
+    </td>
+  </script>
+
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/underscore/underscore.js"></script>
+  <script src="node_modules/backbone/backbone.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
